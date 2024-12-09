@@ -4,11 +4,10 @@ A minimalist analog clock that sits in your Windows system tray. Shows the curre
 
 ![Screenshot](https://github.com/AdamStrandberg/analog-tray-clock/blob/4df0ffd66f6844d6f17e44f249ffeee0f8f10266/screenshot.png)
 
-⬇️ [Download Analog Tray Clock 1.0](https://github.com/AdamStrandberg/analog-tray-clock/releases/download/release/AnalogTrayClock.exe)
+⬇️ [Download Analog Tray Clock](https://github.com/AdamStrandberg/analog-tray-clock/releases/download/release/AnalogTrayClock.exe)
 
 ## Features
 - Minimalist analog clock in Windows system tray
-- Updates every 10 seconds
 - Dark/light theme support
 - Clean, modern design
 

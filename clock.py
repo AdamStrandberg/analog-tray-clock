@@ -12,6 +12,8 @@ from datetime import datetime
 import os
 import json
 import webbrowser
+import threading
+import sys
 
 GITHUB_URL = "https://github.com/adamstrandberg/analog-tray-clock"
 PNG_ICON_PATH = "icon.png"  # PNG icon file for the executable
@@ -34,6 +36,7 @@ class ClockIcon:
         
         # Load or create theme configuration
         self.load_config()
+        self.running = True  # Add this flag to control the update loop
 
     def create_clock_image(self):
         """Creates an analog clock image showing current time."""
@@ -129,11 +132,13 @@ def on_quit(systray):
     """Cleanup and exit the application."""
     try:
         if hasattr(systray, '_clock'):
+            systray._clock.running = False  # Stop the update loop
             if os.path.exists(systray._clock.icon_path):
                 os.remove(systray._clock.icon_path)
     except:
         pass  # Ignore cleanup errors on exit
     systray.shutdown()
+    sys.exit(0)  # Ensure the process exits
 
 def create_icon():
     """Create and run the system tray icon."""
@@ -147,10 +152,14 @@ def create_icon():
     systray = SysTrayIcon(initial_icon, "Analog Tray Clock", menu_options, on_quit=on_quit)
     clock.systray = systray
     systray._clock = clock
-    systray.start()
+    
+    # Create a separate thread for the systray
+    systray_thread = threading.Thread(target=systray.start)
+    systray_thread.daemon = True  # Make thread daemon so it exits when main thread exits
+    systray_thread.start()
     
     try:
-        while True:
+        while clock.running:
             new_icon = clock.create_clock_image()
             systray.update(hover_text="Analog Tray Clock", icon=new_icon)
             time.sleep(10)
