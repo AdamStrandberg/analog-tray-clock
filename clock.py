@@ -59,13 +59,13 @@ class ClockIcon:
         hour_angle = math.radians((hours % 12 + minutes / 60) * 30 - 90)
         hour_x = self.center + int(self.radius * 0.75 * math.cos(hour_angle))
         hour_y = self.center + int(self.radius * 0.75 * math.sin(hour_angle))
-        draw.line([self.center, self.center, hour_x, hour_y], fill=fg_color, width=4)
+        draw.line([self.center, self.center, hour_x, hour_y], fill=fg_color, width=5)
         
         # Draw minute marker
         minute_angle = math.radians(minutes * 6 - 90)
         minute_x = self.center + int(self.radius * 0.9375 * math.cos(minute_angle))
         minute_y = self.center + int(self.radius * 0.9375 * math.sin(minute_angle))
-        draw.ellipse([minute_x-3, minute_y-3, minute_x+3, minute_y+3], fill=fg_color)
+        draw.ellipse([minute_x-4, minute_y-4, minute_x+4, minute_y+4], fill=fg_color)
         
         # Save and handle any potential file system errors
         try:
