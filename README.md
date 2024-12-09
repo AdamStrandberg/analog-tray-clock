@@ -2,7 +2,7 @@
 
 A minimalist analog clock that sits in your Windows system tray. Shows the current time with an elegant design - hours are displayed with a line, and minutes with a dot.
 
-![Screenshot](https://raw.githubusercontent.com/adamstrandberg/analog-tray-clock/master/screenshot.png)
+![Screenshot]([https://raw.githubusercontent.com/adamstrandberg/analog-tray-clock/master/screenshot.png](https://github.com/AdamStrandberg/analog-tray-clock/blob/4df0ffd66f6844d6f17e44f249ffeee0f8f10266/screenshot.png))
 
 ⬇️ [Download Analog Tray Clock 1.0](https://github.com/AdamStrandberg/analog-tray-clock/releases/download/release/AnalogTrayClock.exe)
 
