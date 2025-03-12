@@ -1,6 +1,0 @@
-# Core dependencies
-infi.systray==0.1.12
-Pillow==10.0.0
-
-# Build tools
-pyinstaller
